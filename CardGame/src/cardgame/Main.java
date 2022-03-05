@@ -27,6 +27,10 @@ public class Main {
            }catch(Exception e){
                System.out.println("Incorrect Input");
            }
+        System.out.println("Enter chosen value: ");
+        int chosenValue=input.nextInt();
+        String converted=Integer.toString(chosenValue);
+        
         //------------------------------------Deck of Card Generator
         String[] SUITS = {
             "Clubs", "Diamonds", "Hearts", "Spades"
@@ -63,27 +67,67 @@ public class Main {
         }
         
         
-        //-------------------------------------Deck splitter
+        //-------------------------------------User Deck
+        System.out.println("=================================User Deck");
         
         for(int i=0;i<26;i++){
             userDeck[i]=shufDeck[i];
             System.out.println(userDeck[i]);
+            
         }
+        System.out.println("====================================Pairs");
+        int userScore=0;
+        for(int i=0;i<26;i++){//we need a for loop inside for loop for each item inside array to be compared to all items inside array
+            char w=userDeck[i].charAt(0);
+            String x=String.valueOf(w);
+            
+            for(int j=0;j<26;j++){
+                char y=userDeck[j].charAt(0);
+                String z=String.valueOf(y);
+                if((x.equals(z))&&(!z.equals(userDeck[j]))){
+                    System.out.println("paired from "+ userDeck[i]);
+                    if(z.equals(converted)){
+                        userScore+=1;
+                    }
+                }else{}
+            }
+        }
+        System.out.println("The number of total pair of the given value from your deck is "+userScore);
         
-        System.out.println("-------------------Split---------------");
+        
+        
+        System.out.println("-------------------Game Board--------------------");
+        
+        System.out.println("====================================Computer Deck");
         for(int i=0;i<26;i++){
             comDeck[i]=shufDeck[i+26];
             System.out.println(comDeck[i]);
         }
+        System.out.println("====================================Pairs");
+        String [] result=new String[100];
+        int comScore=0;
+        for(int i=0;i<26;i++){//we need a for loop inside for loop for each item inside array to be compared to all items inside array
+            char w=comDeck[i].charAt(0);
+            String x=String.valueOf(w);
+            
+            for(int j=0;j<26;j++){
+                char y=comDeck[j].charAt(0);
+                String z=String.valueOf(y);
+                if((x.equals(z))&&(!z.equals(comDeck[i]))){
+                    
+                    System.out.println("paired from "+ comDeck[i]);
+                    if(z.equals(converted)){
+                        comScore+=1;
+                    }
+                    
+                    
+                }else{}
+            }
+            
+        }
+        System.out.println("The number of total pair of the given value from your deck is "+comScore);
         
-       
-        
-        
-        
-        
-        
-        
-        
+
         
     }
     
