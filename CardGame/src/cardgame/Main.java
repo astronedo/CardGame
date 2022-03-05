@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static String [] userDeck=new String[26];
     public static String [] comDeck=new String[26];//COMPUTER DECK
+    
     private static String[] SUITS = {
             "Clubs", "Diamonds", "Hearts", "Spades"
         };
@@ -41,8 +42,6 @@ public class Main {
         
         //------------------------------------Deck of Card Generator
         
-
-        // initialize deck
         int n = SUITS.length * VALUES.length;
         String[] deck = new String[n];
         for (int i = 0; i < VALUES.length; i++) {
