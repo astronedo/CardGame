@@ -4,6 +4,8 @@ import static java.lang.Double.NaN;
 import java.util.Scanner;
 
 public class Main {
+    public static String [] userDeck=new String[26];
+    public static String [] comDeck=new String[26];//COMPUTER DECK
 
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
@@ -25,22 +27,22 @@ public class Main {
            }catch(Exception e){
                System.out.println("Incorrect Input");
            }
-        //------------------------------------GAME
+        //------------------------------------Deck of Card Generator
         String[] SUITS = {
             "Clubs", "Diamonds", "Hearts", "Spades"
         };
 
-        String[] RANKS = {
+        String[] VALUES = {
             "2", "3", "4", "5", "6", "7", "8", "9", "10",
             "Jack", "Queen", "King", "Ace"
         };
 
         // initialize deck
-        int n = SUITS.length * RANKS.length;
+        int n = SUITS.length * VALUES.length;
         String[] deck = new String[n];
-        for (int i = 0; i < RANKS.length; i++) {
+        for (int i = 0; i < VALUES.length; i++) {
             for (int j = 0; j < SUITS.length; j++) {
-                deck[SUITS.length*i + j] = RANKS[i] + " of " + SUITS[j];
+                deck[SUITS.length*i + j] = VALUES[i] + " of " + SUITS[j];
             }
         }
 
@@ -51,11 +53,37 @@ public class Main {
             deck[r] = deck[i];
             deck[i] = temp;
         }
-
-        // print shuffled deck
-        for (int i = 0; i < n; i++) {
-            System.out.println(deck[i]);
+        
+        //The shuffled cards will be on a new array[]
+        //after creating the card identities, the card is shuffled, then I stored the shuffled cards into an array to make it its own identity
+        
+        String [] shufDeck=new String[n];
+        for(int i=0;i<n;i++){
+            shufDeck[i]=deck[i];
         }
+        
+        
+        //-------------------------------------Deck splitter
+        
+        for(int i=0;i<26;i++){
+            userDeck[i]=shufDeck[i];
+            System.out.println(userDeck[i]);
+        }
+        
+        System.out.println("-------------------Split---------------");
+        for(int i=0;i<26;i++){
+            comDeck[i]=shufDeck[i+26];
+            System.out.println(comDeck[i]);
+        }
+        
+       
+        
+        
+        
+        
+        
+        
+        
         
     }
     
