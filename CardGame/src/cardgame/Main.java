@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
-        System.out.println("Find-A-Match (must be 18 or older)");
+        System.out.println("==============Numbers-Of-Numbers Game===========");
         Player player=new Player();
         //------------------------------------NAME
         String name;
@@ -36,12 +36,12 @@ public class Main {
            }catch(Exception e){
                System.out.println("Incorrect Input");
            }
-        System.out.println("Enter chosen value: ");
+        System.out.println("Enter chosen value(1-10): ");
         int chosenValue=input.nextInt();
         String converted=Integer.toString(chosenValue);
         
         //------------------------------------Deck of Card Generator
-        
+        //Initiator
         int n = SUITS.length * VALUES.length;
         String[] deck = new String[n];
         for (int i = 0; i < VALUES.length; i++) {
@@ -127,6 +127,14 @@ public class Main {
         }
         System.out.println("The number of total pair of the given value from your deck is "+comScore);
         
+        System.out.println("------------------------------Result------------------------------------");
+        if(comScore>userScore){
+            System.out.println("Computer Wins");
+        }else if(comScore<userScore){
+            System.out.println("User Wins");
+        }else if(comScore==userScore){
+            System.out.println("The game is draw");
+        }
 
         
     }
