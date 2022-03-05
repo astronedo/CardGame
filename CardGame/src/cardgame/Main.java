@@ -6,6 +6,14 @@ import java.util.Scanner;
 public class Main {
     public static String [] userDeck=new String[26];
     public static String [] comDeck=new String[26];//COMPUTER DECK
+    private static String[] SUITS = {
+            "Clubs", "Diamonds", "Hearts", "Spades"
+        };
+
+    private static String[] VALUES = {
+            "2", "3", "4", "5", "6", "7", "8", "9", "10",
+            "Jack", "Queen", "King", "Ace"
+    };
 
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
@@ -32,14 +40,7 @@ public class Main {
         String converted=Integer.toString(chosenValue);
         
         //------------------------------------Deck of Card Generator
-        String[] SUITS = {
-            "Clubs", "Diamonds", "Hearts", "Spades"
-        };
-
-        String[] VALUES = {
-            "2", "3", "4", "5", "6", "7", "8", "9", "10",
-            "Jack", "Queen", "King", "Ace"
-        };
+        
 
         // initialize deck
         int n = SUITS.length * VALUES.length;
